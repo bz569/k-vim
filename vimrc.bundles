@@ -32,10 +32,10 @@ call plug#begin('~/.vim/bundle')
 " syntastic
 Plug 'scrooloose/syntastic'
 
-" Group dependencies, vim-snippets depends on ultisnips
-" 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" " Group dependencies, vim-snippets depends on ultisnips
+" " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
+" " Snippets are separated from the engine. Add this if you want them:
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " auto complete
 " 代码自动补全
@@ -62,10 +62,10 @@ Plug 'bronson/vim-trailing-whitespace'
 " 快速赋值语句对齐
 Plug 'junegunn/vim-easy-align'
 
-" quick movement
-" easymotion
-"更高效的移动 [,, + w/fx/h/j/k/l]
-Plug 'Lokaltog/vim-easymotion'
+" " quick movement
+" " easymotion
+" "更高效的移动 [,, + w/fx/h/j/k/l]
+" Plug 'Lokaltog/vim-easymotion'
 
 " 更高效的行内移动, f/F/t/T, 才触发
 " quickscope
@@ -117,9 +117,9 @@ Plug 'tpope/vim-fugitive'
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 
-" gundo
-" edit history, 可以查看回到某个历史状态
-Plug 'sjl/gundo.vim'
+" " gundo
+" " edit history, 可以查看回到某个历史状态
+" Plug 'sjl/gundo.vim'
 
 " view
 " airline
@@ -508,9 +508,9 @@ call plug#end()
 " ################### 功能相关 ###################
 
 " ctrlp ctrlpfunky{{{
-    let g:ctrlp_map = '<leader>p'
+    " let g:ctrlp_map = '<leader>p'
     let g:ctrlp_cmd = 'CtrlP'
-    map <leader>f :CtrlPMRU<CR>
+    " map <leader>f :CtrlPMRU<CR>
     let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
         \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
@@ -542,6 +542,7 @@ call plug#end()
 
 " ctrlsf {{{
     nmap \ <Plug>CtrlSFCwordPath<CR>
+    nnoremap <Leader>\ :CtrlSF 
     " let g:ctrlsf_position = 'below'
     " let g:ctrlsf_winsize = '30%'
     let g:ctrlsf_auto_close = 0
@@ -654,7 +655,7 @@ call plug#end()
 " ################### 快速导航 ###################
 
 " nerdtree nerdtreetabs {{{
-    map <leader>n :NERDTreeToggle<CR>
+    map <leader>f :NERDTreeToggle<CR>
     let NERDTreeHighlightCursorline=1
     let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
     "close vim if the only window left open is a NERDTree
