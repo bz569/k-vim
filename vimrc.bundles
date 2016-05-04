@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta', 'json', 'nginx', 'golang', 'ruby', 'less', 'php', 'coffeescript']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
+    let g:bundle_groups=['swift', 'python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -154,6 +154,13 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
 Plug 'kana/vim-textobj-indent'
+
+" HTTP Request
+Plug 'aquach/vim-http-client'
+
+if count(g:bundle_groups, 'swift')
+    Plug 'keith/swift.vim'
+endif
 
 if count(g:bundle_groups, 'tmux')
     " tmux
@@ -793,7 +800,11 @@ call plug#end()
 " nginx {{{
 " }}}
 
-
+" ####### HTTP Request ##########
+" vim-http-client {{{
+ map <Leader>hh :sp ~/Documents/request<CR>
+ map <Leader>ht :HTTPClientDoRequest<CR>
+" }}}
 " ####### temp #######
 
 " beta {{{
