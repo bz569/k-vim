@@ -29,8 +29,11 @@ call plug#begin('~/.vim/bundle')
 
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 
+" Swap Window Position
+Plug 'wesQ3/vim-windowswap'
+
 " syntastic
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 " " Group dependencies, vim-snippets depends on ultisnips
 " " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
@@ -41,7 +44,11 @@ Plug 'scrooloose/syntastic'
 " 代码自动补全
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
-Plug 'Valloric/YouCompleteMe'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+else
+    Plug 'Valloric/YouCompleteMe'
+endif
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -86,7 +93,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-expand-region'
 " 多光标选中编辑
 " multiplecursors
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 " quick locate file or function
 " 文件搜索
@@ -109,11 +116,11 @@ Plug 'dyng/ctrlsf.vim'
 
 " quick run
 " quickrun
-Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-quickrun'
 
 " git
 " fugitive
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 
@@ -135,6 +142,7 @@ Plug 'altercation/vim-colors-solarized'
 " molokai
 " 主题 molokai
 Plug 'tomasr/molokai'
+" Plug 'mhartington/oceanic-next'
 
 
 " nav
@@ -143,7 +151,7 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " ctrlspace
 Plug 'szw/vim-ctrlspace'
 " tagbar
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 " text object
 " 支持自定义文本对象
@@ -160,6 +168,11 @@ Plug 'aquach/vim-http-client'
 
 if count(g:bundle_groups, 'swift')
     Plug 'keith/swift.vim'
+
+    if has('nvim')
+        Plug 'mitsuse/autocomplete-swift'
+    endif
+
 endif
 
 if count(g:bundle_groups, 'tmux')
@@ -169,6 +182,7 @@ if count(g:bundle_groups, 'tmux')
 endif
 
 if count(g:bundle_groups, 'markdown')
+    " Plug 'JamshedVesuna/vim-markdown-preview'
     Plug 'plasticboy/vim-markdown', {'for': 'md'}
     " https://github.com/suan/vim-instant-markdown
     " npm -g install instant-markdown-d
@@ -549,7 +563,7 @@ call plug#end()
 
 " ctrlsf {{{
     nmap \ <Plug>CtrlSFCwordPath<CR>
-    nnoremap <Leader>\ :CtrlSF 
+    nnoremap <Leader>\ :CtrlSF
     " let g:ctrlsf_position = 'below'
     " let g:ctrlsf_winsize = '30%'
     let g:ctrlsf_auto_close = 0
@@ -697,6 +711,7 @@ call plug#end()
 " 标签导航
 " tagbar {{{
     nmap <F9> :TagbarToggle<CR>
+    let g:tagbar_show_linenumbers = 0
     let g:tagbar_autofocus = 1
     " let g:tagbar_autoshowtag = 1
     " let g:tagbar_show_visibility = 1
@@ -780,6 +795,7 @@ call plug#end()
 
 " markdown {{{
     let g:vim_markdown_folding_disabled=1
+    let vim_markdown_preview_hotkey='<C-P>'
 " }}}
 
 

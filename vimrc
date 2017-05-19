@@ -19,8 +19,7 @@
 "       -> 插件配置和具体设置在vimrc.bundles中
 "==========================================
 
-"==========================================
-" Initial Plugin 加载插件
+"========================================== Initial Plugin 加载插件
 "==========================================
 
 " 修改leader键
@@ -225,7 +224,7 @@ set ttyfast
 set nrformats=
 
 " " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-" set relativenumber number
+set relativenumber number
 " au FocusLost * :set norelativenumber number
 " au FocusGained * :set relativenumber
 " " 插入模式下用绝对行号, 普通模式下用相对
@@ -545,6 +544,11 @@ nnoremap ` '
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
+" exit terminal in neovim
+if has("nvim")
+    :tnoremap <Esc> <C-\><C-n>
+endif
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -655,9 +659,16 @@ endif
 
 " theme主题
 set background=dark
-set t_Co=256
 
-colorscheme solarized
+if !has('nvim')
+    set t_Co=256
+    colorscheme solarized
+else
+    if (has("termguicolors"))
+         set termguicolors
+    endif
+    colorscheme NeoSolarized
+endif
 " colorscheme molokai
 " colorscheme desert
 
