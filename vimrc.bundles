@@ -46,6 +46,8 @@ Plug 'wesQ3/vim-windowswap'
 " 重启 :YcmRestartServer
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi', { 'for': 'python'}
+    Plug 'mitsuse/autocomplete-swift', { 'for': 'swift'}
 else
     Plug 'Valloric/YouCompleteMe'
 endif
@@ -120,7 +122,7 @@ Plug 'dyng/ctrlsf.vim'
 
 " git
 " fugitive
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 
@@ -369,6 +371,26 @@ call plug#end()
 
 
 " ################### 自动补全 ###################
+" deoplete.nvim {{{
+    let g:deoplete#enable_at_startup = 1
+    " Use smartcase.
+	let g:deoplete#enable_smart_case = 1
+
+    " Key map
+    inoremap <silent><expr> <C-Space>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#mappings#manual_complete()
+		function! s:check_back_space() abort "{{{
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+		endfunction"}}}
+"}}}
+
+" autocomplete-swift {{{
+    " Jump to the first placeholder by typing `<C-k>`.
+    autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_placeholder)
+" }}}
 
 " YouCompleteMe {{{
     "youcompleteme  默认tab  s-tab 和自动补全冲突
