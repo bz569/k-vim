@@ -664,9 +664,9 @@ if !has('nvim')
     set t_Co=256
     colorscheme solarized
 else
-    if (has("termguicolors"))
-         set termguicolors
-    endif
+    " if (has("termguicolors"))
+         " set termguicolors
+    " endif
     colorscheme NeoSolarized
 endif
 " colorscheme molokai
