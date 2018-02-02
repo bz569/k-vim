@@ -664,14 +664,15 @@ if !has('nvim')
     set t_Co=256
     colorscheme solarized
 else
-    " if (has("termguicolors"))
-         " set termguicolors
-    " endif
-    colorscheme NeoSolarized
+    if (has("termguicolors"))
+         set termguicolors
+    endif
+    " colorscheme NeoSolarized
+    colorscheme OceanicNext
 endif
-" colorscheme molokai
-" colorscheme desert
 
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr

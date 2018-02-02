@@ -141,10 +141,8 @@ Plug 'kien/rainbow_parentheses.vim'
 " 主题 solarized
 " solarized
 Plug 'altercation/vim-colors-solarized'
-" molokai
-" 主题 molokai
-Plug 'tomasr/molokai'
-" Plug 'mhartington/oceanic-next'
+" Oceanic-Next
+Plug 'mhartington/oceanic-next'
 
 
 " nav
@@ -646,6 +644,7 @@ call plug#end()
     let g:airline_right_alt_sep = '❮'
     let g:airline_symbols.linenr = '¶'
     let g:airline_symbols.branch = '⎇'
+    let g:airline_theme='oceanicnext'
     " 是否打开tabline
     " let g:airline#extensions#tabline#enabled = 1
 " }}}
