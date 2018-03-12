@@ -313,7 +313,7 @@ endif
 " 主要按键重定义
 
 " Use jj to leave insert mode
-imap jj <Esc>
+" imap jj <Esc>
 
 " 关闭方向键, 强迫自己用 hjkl
 map <Left> <Nop>
