@@ -151,9 +151,9 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " ctrlspace
 Plug 'szw/vim-ctrlspace'
 " tagbar
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 " Auto generate tags
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " text object
 " 支持自定义文本对象
