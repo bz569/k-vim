@@ -45,9 +45,9 @@ Plug 'wesQ3/vim-windowswap'
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi', { 'for': 'python'}
-    Plug 'mitsuse/autocomplete-swift', { 'for': 'swift'}
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'zchee/deoplete-jedi', { 'for': 'python'}
+    " Plug 'mitsuse/autocomplete-swift', { 'for': 'swift'}
 else
     " Plug 'Valloric/YouCompleteMe'
 endif
@@ -172,7 +172,7 @@ if count(g:bundle_groups, 'swift')
     Plug 'keith/swift.vim'
 
     if has('nvim')
-        Plug 'mitsuse/autocomplete-swift'
+        " Plug 'mitsuse/autocomplete-swift'
     endif
 
 endif
@@ -377,14 +377,15 @@ call plug#end()
 	let g:deoplete#enable_smart_case = 1
 
     " Key map
-    inoremap <silent><expr> <C-Space>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
-		function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
-		endfunction"}}}
+    " inoremap <silent><expr> <C-Space>
+        " \ pumvisible() ? "\<C-n>" :
+        " \ <SID>check_back_space() ? "\<TAB>" :
+        " \ deoplete#mappings#manual_complete()
+        " function! s:check_back_space() abort "{{{
+        " let col = col('.') - 1
+        " return !col || getline('.')[col - 1]  =~ '\s'
+        " endfunction"}}}
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 "}}}
 
 " autocomplete-swift {{{
